@@ -4,13 +4,13 @@
 
 ### Cài đặt để sử dụng ###
 
-- Package cần phải có base `sudo/core`, 'sudo/ecommerce' để có thể hoạt động không gây ra lỗi
+- Package cần phải có base `sudo/core`, `sudo/ecommerce` để có thể hoạt động không gây ra lỗi
 
 ### Cách sử dụng ###
 - Thêm sudo/packages-viettelpost vào composer.json
 - composer update để require
 - Cấu hình SudoMenu
-	[
+	`[
         'name' 		=> 'Kho viettelpost',
         'route' 	=> 'admin.viettelpost_stores.index',
         'role' 		=> 'viettelpost_stores_index',
@@ -19,9 +19,9 @@
         'name' 		=> 'Tài khoản viettelpost',
         'route' 	=> 'admin.viettelpost_stores.setAccount',
         'role' 		=> 'viettelpost_stores_setAccount',
-    ],
+    ],`
 - Cấu hình SudoModule
-	'viettelpost_stores' => [
+	`'viettelpost_stores' => [
 		'name' 			=> 'Kho viettelpost',
 		'permision' 	=> [
 			[ 'type' => 'index', 'name' => 'Truy cập' ],
@@ -32,7 +32,7 @@
 			[ 'type' => 'restore', 'name' => 'Lấy lại' ],
 			[ 'type' => 'delete', 'name' => 'Xóa' ],
 		],
-	],
+	],`
 - Sau khi composer update để require thành công chạy các lệnh sau
 - php artisan migrate để tạo table địa chỉ và thêm các trường để lưu dữ liệu vận chuyển cho đơn hàng
 - php artisan sudo/vtpaddress:seeds provinces để lấy dữ liệu địa chỉ tỉnh thành
@@ -40,13 +40,13 @@
 - php artisan sudo/vtpaddress:seeds wards để lấy dữ liệu địa chỉ phường xã
 
 #### Giao diện người dùng ####
-use Sudo\ViettelPost\Http\Controllers\ViettelPostController;
-$viettelPost = new ViettelPostController();
-ex: đăng đơn $data = $viettelPost->putOrderVTP($order_id);
-Chi tiết các hàm xử lý xem tại ViettelPostController
+- use Sudo\ViettelPost\Http\Controllers\ViettelPostController;
+- $viettelPost = new ViettelPostController();
+- ex: đăng đơn $data = $viettelPost->putOrderVTP($order_id);
+- Chi tiết các hàm xử lý xem tại ViettelPostController
 
 ### Cấu hình webbhook nhận hành trình vận đơn ##
-Thêm đường dẫn  '/viettelpost/webhook' vào App\Middleware\VerifyCsrfToken
+- Thêm đường dẫn  `/viettelpost/webhook` vào App\Middleware\VerifyCsrfToken
 
 ### Lưu ý ##
 - Package hỗ trợ đăng đơn, hủy đơn và nhận hành trình vận đơn từ viettelpost

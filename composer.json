@@ -1,0 +1,27 @@
+{
+    "name": "sudo/packages-viettelpost",
+    "description": "Packages tranfer viettelpost",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Nguyen Van Duy",
+            "email": "duyvn.k56@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Sudo\\ViettelPost\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sudo\\ViettelPost\\Providers\\ViettelPostServiceProvider"
+            ],
+            "aliases": {}
+        }
+    }
+}
